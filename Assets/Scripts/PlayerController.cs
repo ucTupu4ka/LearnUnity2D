@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float thrustForce = 1f;
     public float maxSpeed = 10f;
     public GameObject boosterFlame;
-    private float score = 0f;
+    private int score = 0;
     public float scoreMultiplayr = 10f;
     public UIDocument uiDocument;
     private float elapsedTime = 0f;
@@ -35,8 +35,6 @@ public class PlayerController : MonoBehaviour
     void UpdateScore()
     {
         elapsedTime += Time.deltaTime;
-        score = Mathf.FloorToInt(elapsedTime * scoreMultiplayr);
-        Debug.Log("Score " + score);
         scoreText.text = "Score: " + score;
     }
 
@@ -67,10 +65,20 @@ public class PlayerController : MonoBehaviour
 
     }
     void OnCollisionEnter2D(Collision2D collision)
+
     {
-        Instantiate(explosionEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
-        restartButton.style.display = DisplayStyle.Flex;
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+            restartButton.style.display = DisplayStyle.Flex;
+        }
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(collision.gameObject);
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+            score++;
+        }
     }
 
     void ReloadScene()

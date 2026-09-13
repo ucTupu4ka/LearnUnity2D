@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6622223481398344707}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 1748e795fc2216743b74f9f19e87888e, type: 3}
-  m_Color: {r: 0.8207547, g: 0.06581532, b: 0.06581525, a: 1}
+  m_Color: {r: 0.5566038, g: 0.31243324, b: 0.31243324, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
